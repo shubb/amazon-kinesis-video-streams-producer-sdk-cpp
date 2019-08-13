@@ -21,7 +21,7 @@ WORKDIR /opt/
 
 # ===== Git Checkout latest Kinesis Video Streams Producer SDK (CPP) =======================================
 
-RUN git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp.git
+RUN git clone https://github.com/shubb/amazon-kinesis-video-streams-producer-sdk-cpp.git
 
 # ================ Build the Producer SDK (CPP) ============================================================
 
