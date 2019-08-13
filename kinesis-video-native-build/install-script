@@ -430,6 +430,9 @@ if [[ $build_gst_artifact == TRUE ]]; then
   fi
 
   export GLIB_CFLAGS="-I$DOWNLOADS/local/include/glib-2.0 -I$DOWNLOADS/local/include/glib-2.0/glib -I$DOWNLOADS/local/lib/glib-2.0/include"
+  
+  # Move library path to avoid conflicts with system libraries
+  export LD_LIBRARY_PATH="$KINESIS_VIDEO_ROOT/downloads/local/lib:$LD_LIBRARY_PATH"
 
   # TODO: correct soup.a when we know what it compiles as
   #-----------------------lib soup (bison) --------------------------------------------------------------------------------
@@ -699,7 +702,6 @@ cd "${KINESIS_VIDEO_ROOT}"
 # adding $KINESIS_VIDEO_ROOT/downloads/local/lib to $LD_LIBRARY_PATH so the linker can find the libraries.
 cat > set_kvs_sdk_env.sh << END_TEXT
 export PATH="$KINESIS_VIDEO_ROOT/downloads/local/bin":$PATH
-export LD_LIBRARY_PATH="$KINESIS_VIDEO_ROOT/downloads/local/lib:$LD_LIBRARY_PATH"
 END_TEXT
 chmod a+x set_kvs_sdk_env.sh
 
