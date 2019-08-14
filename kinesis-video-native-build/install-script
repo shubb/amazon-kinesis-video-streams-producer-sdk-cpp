@@ -477,7 +477,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
     cd $DOWNLOADS
     tar -xvf libsoup-2.48.1.tar.xz
     cd $DOWNLOADS/libsoup-2.48.1
-    ./configure --prefix=$DOWNLOADS/local  CFLAGS="-I$DOWNLOADS/local/include" LDFLAGS="-L$DOWNLOADS/local/lib"
+    ./configure --disable-tls-check --prefix=$DOWNLOADS/local  CFLAGS="-I$DOWNLOADS/local/include" LDFLAGS="-L$DOWNLOADS/local/lib"
     make -j $max_parallel
     make install
   fi

@@ -15,6 +15,8 @@ RUN apt-get install -y git && \
     apt-get install -y cmake && \
     apt-get install -y maven && \
     apt-get install -y openjdk-8-jdk && \
+    apt-get install -y python && \
+    apt-get install -y python-dev && \
     rm -rf /var/lib/apt/lists/*
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/
 WORKDIR /opt/
