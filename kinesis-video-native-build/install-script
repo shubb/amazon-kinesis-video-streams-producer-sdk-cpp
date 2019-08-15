@@ -105,8 +105,8 @@ if [[ $build_producer == TRUE ]]; then
     echo "openssl lib not found. Installing"
     if [ ! -f $DOWNLOADS/openssl-1.1.0f.tar.gz ]; then
       cd $DOWNLOADS
-      #download_cmd="curl -L "https://www.openssl.org/source/openssl-1.1.0f.tar.gz" -o "openssl-1.1.0f.tar.gz" "
-      $SYS_CURL -L "https://www.openssl.org/source/openssl-1.1.0f.tar.gz" -o "openssl-1.1.0f.tar.gz"
+      #download_cmd="curl -L "http://www.openssl.org/source/openssl-1.1.0f.tar.gz" -o "openssl-1.1.0f.tar.gz" "
+      $SYS_CURL -L "http://www.openssl.org/source/openssl-1.1.0f.tar.gz" -o "openssl-1.1.0f.tar.gz"
     fi
     cd $DOWNLOADS
     tar -xvf openssl-1.1.0f.tar.gz
@@ -121,7 +121,7 @@ if [[ $build_producer == TRUE ]]; then
     echo "Curl lib not found. Installing"
     if [ ! -f $DOWNLOADS/curl-7.57.0.tar.xz ]; then
       cd $DOWNLOADS
-      $SYS_CURL -L "https://curl.haxx.se/download/curl-7.57.0.tar.xz" -o "curl-7.57.0.tar.xz"
+      $SYS_CURL -L "http://curl.haxx.se/download/curl-7.57.0.tar.xz" -o "curl-7.57.0.tar.xz"
     fi
     cd $DOWNLOADS
     tar -xvf curl-7.57.0.tar.xz
@@ -131,7 +131,7 @@ if [[ $build_producer == TRUE ]]; then
       ./configure --prefix=$DOWNLOADS/local/ --enable-dynamic --disable-rtsp --disable-ldap --without-zlib --with-ssl=$DOWNLOADS/local/ --with-ca-bundle=$CERT_PEM_FILE
     else
       echo "Cannot find the cert.pem at $CERTS_FOLDER -- libcurl build requires cert.pem; existing."
-      echo "Download the https://www.amazontrust.com/repository/SFSRootCAG2.pem to $CERTS_FOLDER/cert.pem"
+      echo "Download the http://www.amazontrust.com/repository/SFSRootCAG2.pem to $CERTS_FOLDER/cert.pem"
       exit
     fi
     make -j $max_parallel
@@ -144,7 +144,7 @@ if [[ $build_producer == TRUE ]]; then
       echo "log4cplus lib not found. Installing"
       if [ ! -f $DOWNLOADS/log4cplus-1.2.0.tar.xz ]; then
         cd $DOWNLOADS
-        $SYS_CURL -L "https://github.com/log4cplus/log4cplus/releases/download/REL_1_2_0/log4cplus-1.2.0.tar.xz" -o "log4cplus-1.2.0.tar.xz"
+        $SYS_CURL -L "http://github.com/log4cplus/log4cplus/releases/download/REL_1_2_0/log4cplus-1.2.0.tar.xz" -o "log4cplus-1.2.0.tar.xz"
       fi
       cd $DOWNLOADS
       tar -xvf log4cplus-1.2.0.tar.xz
@@ -161,7 +161,7 @@ if [[ $build_producer == TRUE ]]; then
     echo "jsmn lib not found. Installing"
     if [ ! -f $DOWNLOADS/jsmn.tar.gz ]; then
       cd $DOWNLOADS
-      $SYS_CURL -L "https://github.com/zserge/jsmn/archive/v1.0.0.tar.gz" -o "jsmn.tar.gz"
+      $SYS_CURL -L "http://github.com/zserge/jsmn/archive/v1.0.0.tar.gz" -o "jsmn.tar.gz"
     fi
     cd $DOWNLOADS
     tar -xvf jsmn.tar.gz
@@ -188,7 +188,7 @@ if [[ $build_test == TRUE ]]; then
         echo "gtest lib not found. Installing"
         if [ ! -d $DOWNLOADS/googletest-release-1.8.0 ]; then
           cd $DOWNLOADS
-          $SYS_CURL -L "https://github.com/google/googletest/archive/release-1.8.0.tar.gz" -o "google-test-1.8.0.gz"
+          $SYS_CURL -L "http://github.com/google/googletest/archive/release-1.8.0.tar.gz" -o "google-test-1.8.0.gz"
           tar -xvf google-test-1.8.0.gz
         fi
         cd $DOWNLOADS/googletest-release-1.8.0
@@ -207,7 +207,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
      echo "gettext lib not found. Installing"
      if [ ! -f $DOWNLOADS/gettext-0.19.8.tar.xz ]; then
        cd $DOWNLOADS
-       $SYS_CURL -L "https://ftp.gnu.org/pub/gnu/gettext/gettext-0.19.8.tar.xz" -o "gettext-0.19.8.tar.xz"
+       $SYS_CURL -L "http://ftp.gnu.org/pub/gnu/gettext/gettext-0.19.8.tar.xz" -o "gettext-0.19.8.tar.xz"
      fi
      cd $DOWNLOADS
      tar -xvf gettext-0.19.8.tar.xz
@@ -225,7 +225,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
       echo "libffi lib not found. Installing"
       if [ ! -f $DOWNLOADS/libffi-3.2.1.tar.gz ]; then
         cd $DOWNLOADS
-        $SYS_CURL -L "https://sourceware.org/ftp/libffi/libffi-3.2.1.tar.gz" -o "libffi-3.2.1.tar.gz"
+        $SYS_CURL -L "http://sourceware.org/ftp/libffi/libffi-3.2.1.tar.gz" -o "libffi-3.2.1.tar.gz"
       fi
       cd $DOWNLOADS
       tar -xvf libffi-3.2.1.tar.gz
@@ -242,7 +242,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
       echo "pcre lib not found. Installing"
       if [ ! -f $DOWNLOADS/pcre-8.41.tar.gz ]; then
         cd $DOWNLOADS
-        $SYS_CURL -L "https://ftp.pcre.org/pub/pcre/pcre-8.41.tar.gz" -o "pcre-8.41.tar.gz"
+        $SYS_CURL -L "http://ftp.pcre.org/pub/pcre/pcre-8.41.tar.gz" -o "pcre-8.41.tar.gz"
       fi
       cd $DOWNLOADS
       tar -xvf pcre-8.41.tar.gz
@@ -259,7 +259,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
       echo "zlib lib not found. Installing"
       if [ ! -f $DOWNLOADS/zlib-1.2.11.tar.gz ]; then
         cd $DOWNLOADS
-        $SYS_CURL -L "https://www.zlib.net/zlib-1.2.11.tar.gz" -o "zlib-1.2.11.tar.gz"
+        $SYS_CURL -L "http://www.zlib.net/zlib-1.2.11.tar.gz" -o "zlib-1.2.11.tar.gz"
       fi
       cd $DOWNLOADS
       tar -xvf zlib-1.2.11.tar.gz
@@ -276,7 +276,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
       echo "iconv lib not found. Installing"
       if [ ! -f $DOWNLOADS/libiconv-1.15.tar.gz ]; then
         cd $DOWNLOADS
-        $SYS_CURL -L "https://ftp.gnu.org/gnu/libiconv/libiconv-1.15.tar.gz" -o "libiconv-1.15.tar.gz"
+        $SYS_CURL -L "http://ftp.gnu.org/gnu/libiconv/libiconv-1.15.tar.gz" -o "libiconv-1.15.tar.gz"
       fi
       cd $DOWNLOADS
       tar -xvf libiconv-1.15.tar.gz
@@ -294,7 +294,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
         echo "libmount lib not found. Installing"
         if [ ! -f $DOWNLOADS/util-linux-2.31.tar.gz ]; then
           cd $DOWNLOADS
-          $SYS_CURL -L "https://www.kernel.org/pub/linux/utils/util-linux/v2.31/util-linux-2.31.tar.gz" -o "util-linux-2.31.tar.gz"
+          $SYS_CURL -L "http://www.kernel.org/pub/linux/utils/util-linux/v2.31/util-linux-2.31.tar.gz" -o "util-linux-2.31.tar.gz"
         fi
         cd $DOWNLOADS
         tar -xvf util-linux-2.31.tar.gz
@@ -311,7 +311,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
     echo "m4 not found. Installing"
     if [ ! -f $DOWNLOADS/m4-1.4.10.tar.gz ]; then
       cd $DOWNLOADS
-      $SYS_CURL -L "https://ftp.gnu.org/gnu/m4/m4-1.4.10.tar.gz" -o "m4-1.4.10.tar.xz"
+      $SYS_CURL -L "http://ftp.gnu.org/gnu/m4/m4-1.4.10.tar.gz" -o "m4-1.4.10.tar.xz"
     fi
     cd $DOWNLOADS
     tar -xvf m4-1.4.10.tar.xz
@@ -326,7 +326,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
       echo "bison not found. Installing"
       if [ ! -f $DOWNLOADS/bison-3.0.4.tar.gz ]; then
         cd $DOWNLOADS
-        $SYS_CURL -L "https://ftp.gnu.org/gnu/bison/bison-3.0.4.tar.gz" -o "bison-3.0.4.tar.xz"
+        $SYS_CURL -L "http://ftp.gnu.org/gnu/bison/bison-3.0.4.tar.gz" -o "bison-3.0.4.tar.xz"
       fi
       cd $DOWNLOADS
       tar -xvf bison-3.0.4.tar.xz
@@ -343,7 +343,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
         echo "flex not found. Installing"
         if [ ! -f $DOWNLOADS/flex-2.6.3.tar.gz ]; then
           cd $DOWNLOADS
-          $SYS_CURL -L "https://github.com/westes/flex/releases/download/v2.6.3/flex-2.6.3.tar.gz" -o "flex-2.6.3.tar.xz"
+          $SYS_CURL -L "http://github.com/westes/flex/releases/download/v2.6.3/flex-2.6.3.tar.gz" -o "flex-2.6.3.tar.xz"
         fi
         cd $DOWNLOADS
         tar -xvf flex-2.6.3.tar.xz
@@ -361,7 +361,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
         echo "libtools not found. Installing"
         if [ ! -f $DOWNLOADS/libtool-2.4.6.tar.gz ]; then
           cd $DOWNLOADS
-          $SYS_CURL -L "https://ftp.gnu.org/gnu/libtool/libtool-2.4.6.tar.xz" -o "libtool-2.4.6.tar.xz"
+          $SYS_CURL -L "http://ftp.gnu.org/gnu/libtool/libtool-2.4.6.tar.xz" -o "libtool-2.4.6.tar.xz"
         fi
         cd $DOWNLOADS
         tar -xvf libtool-2.4.6.tar.xz
@@ -467,7 +467,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
   fi
 
   # TODO: correct soup.a when we know what it compiles as
-  #-----------------------lib soup for souphttpsrc --------------------------------------------------------------------------------
+  #-----------------------lib soup for souphttprc --------------------------------------------------------------------------------
   if [ ! -f $DOWNLOADS/local/lib/soup.a ]; then
     echo "soup not found. Installing"
     if [ ! -f $DOWNLOADS/libsoup-2.48.1.tar.xz ]; then
@@ -490,7 +490,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
       export ARCHFLAGS="-arch x86_64"
       if [ ! -f $DOWNLOADS/gstreamer-1.12.3.tar.xz ]; then
         cd $DOWNLOADS
-        $SYS_CURL -L "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.12.3.tar.xz" -o "gstreamer-1.12.3.tar.xz"
+        $SYS_CURL -L "http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.12.3.tar.xz" -o "gstreamer-1.12.3.tar.xz"
       fi
       cd $DOWNLOADS
       tar -xvf gstreamer-1.12.3.tar.xz
@@ -512,7 +512,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
       echo "gst-plugin-base not found. Installing"
       if [ ! -f $DOWNLOADS/gst-plugins-base-1.12.3.tar.xz ]; then
         cd $DOWNLOADS
-        $SYS_CURL -L "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.12.3.tar.xz" -o "gst-plugins-base-1.12.3.tar.xz"
+        $SYS_CURL -L "http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.12.3.tar.xz" -o "gst-plugins-base-1.12.3.tar.xz"
       fi
       cd $DOWNLOADS
       tar -xvf gst-plugins-base-1.12.3.tar.xz
@@ -533,7 +533,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
     echo "gst-plugin-good not found. Installing"
     if [ ! -f $DOWNLOADS/gst-plugins-good-1.12.3.tar.xz ]; then
       cd $DOWNLOADS
-      $SYS_CURL -L "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.12.3.tar.xz" -o "gst-plugins-good-1.12.3.tar.xz"
+      $SYS_CURL -L "http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.12.3.tar.xz" -o "gst-plugins-good-1.12.3.tar.xz"
     fi
     cd $DOWNLOADS
     tar -xvf gst-plugins-good-1.12.3.tar.xz
@@ -554,7 +554,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
       echo "gst-plugin-bad not found. Installing"
       if [ ! -f $DOWNLOADS/gst-plugins-bad-1.12.3.tar.xz ]; then
         cd $DOWNLOADS
-        $SYS_CURL -L "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.12.3.tar.xz" -o "gst-plugins-bad-1.12.3.tar.xz"
+        $SYS_CURL -L "http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.12.3.tar.xz" -o "gst-plugins-bad-1.12.3.tar.xz"
       fi
       cd $DOWNLOADS
       tar -xvf gst-plugins-bad-1.12.3.tar.xz
@@ -597,7 +597,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
       echo "gst-libav not found. Installing"
       if [ ! -f $DOWNLOADS/gst-libav-1.12.4.tar.xz ]; then
         cd $DOWNLOADS
-        $SYS_CURL -L "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.12.4.tar.xz" -o "gst-libav-1.12.4.tar.xz"
+        $SYS_CURL -L "http://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.12.4.tar.xz" -o "gst-libav-1.12.4.tar.xz"
       fi
       cd $DOWNLOADS
       tar -xvf gst-libav-1.12.4.tar.xz
@@ -624,7 +624,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
         echo "x264 not found. Installing"
         if [ ! -f $DOWNLOADS/x264-snapshot-20171204-2245-stable.tar.bz2 ]; then
           cd $DOWNLOADS
-          $SYS_CURL -L "https://download.videolan.org/x264/snapshots/x264-snapshot-20171204-2245-stable.tar.bz2" -o "x264-snapshot-20171204-2245-stable.tar.bz2"
+          $SYS_CURL -L "http://download.videolan.org/x264/snapshots/x264-snapshot-20171204-2245-stable.tar.bz2" -o "x264-snapshot-20171204-2245-stable.tar.bz2"
         fi
         cd $DOWNLOADS
         tar -xvf x264-snapshot-20171204-2245-stable.tar.bz2
@@ -646,7 +646,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
         echo "gst-plugin-ugly not found. Installing"
         if [ ! -f $DOWNLOADS/gst-plugins-ugly-1.12.3.tar.xz ]; then
           cd $DOWNLOADS
-          $SYS_CURL -L "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.12.3.tar.xz" -o "gst-plugins-ugly-1.12.3.tar.xz"
+          $SYS_CURL -L "http://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.12.3.tar.xz" -o "gst-plugins-ugly-1.12.3.tar.xz"
         fi
         cd $DOWNLOADS
         tar -xvf gst-plugins-ugly-1.12.3.tar.xz
@@ -678,7 +678,7 @@ if [[ $build_gst_artifact == TRUE ]]; then
         echo "gst-omx not found. Installing"
         if [ ! -f $DOWNLOADS/gst-omx-1.10.4.tar.xz ]; then
           cd $DOWNLOADS
-          $SYS_CURL -L "https://gstreamer.freedesktop.org/src/gst-omx/gst-omx-1.10.4.tar.xz" -o "gst-omx-1.10.4.tar.xz"
+          $SYS_CURL -L "http://gstreamer.freedesktop.org/src/gst-omx/gst-omx-1.10.4.tar.xz" -o "gst-omx-1.10.4.tar.xz"
         fi
         cd $DOWNLOADS
         tar -xvf gst-omx-1.10.4.tar.xz
