@@ -131,7 +131,7 @@ extern "C" {
 /**
  * Max frame queue per track definition
  */
-#define DEFAULT_MAX_FRAME_QUEUE_SIZE_PER_TRACK              60
+#define DEFAULT_MAX_FRAME_QUEUE_SIZE_PER_TRACK              5000
 
 /**
  * Max MKV client id length
